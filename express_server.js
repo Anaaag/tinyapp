@@ -10,10 +10,10 @@ function generateRandomString() {
 
 
 const urlDatabase = {
-  "b2xVn2": "http://www.lighthouselabs.ca",
-  "9sm5xK": "http://www.google.com"
-
+  'b2xVn2': { longURL: 'http://www.lighthouselabs.ca', userID: '123' },
+  '9sm5xK': { longURL: 'http://www.google.com', userID: '345' }
 };
+
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -63,6 +63,13 @@ app.get("/u/:shortURL", (req, res) => {
 app.post("/urls/:shortURL/delete", (req, res) => {
   const shortURL = req.params.shortURL
   delete urlDatabase[shortURL] 
+  res.redirect("/urls")
+})
+
+app.post("/urls/:id", (req, res) => {
+  console.log(req.params)
+  console.log(req.params.id)
+  console.log(urlDatabase[req.params.id])
   res.redirect("/urls")
 })
 
