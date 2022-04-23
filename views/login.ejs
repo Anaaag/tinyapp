@@ -3,28 +3,28 @@
 <head>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Registration</title>
+  <title>Login</title>
 </head>
 <body>
   <%- include('partials/_header') %>
   <main style="margin: 1em">
-  <div class="card text-center">
-      <div class="card-header"></div>
-      <div class="card-body">
-        <h4>Register</h4>    
-        <form class="form" action="/register" method="POST">
-          <div class="form-group m-auto">
-            <label for="email">Email Address</label>
-            <input style="max-width: 300px" type="email" class="form-control m-auto" id="email" placeholder="Email" name="email"></input>
-            <br>
-            <label for="password">Password</label>
-            <input style="max-width: 300px" type="password" class="form-control m-auto" id="password" placeholder="Password" name="Password"></input>
-            <br>
-            <button type="submit" class="btn btn-primary">Register</button>
-          </div>
-        </form>
-     </div>
-    </main>
+    <div class="card text-center">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <h4>Login</h4>    
+          <form class="form" action="/login" method="POST">
+            <div class="form-group m-auto">
+              <label for="email">Email Address</label>
+              <input style="max-width: 300px" type="email" class="form-control m-auto" id="email" placeholder="Email" name="email"></input>
+              <br>
+              <label for="password">Password</label>
+              <input style="max-width: 300px" type="password" class="form-control m-auto" id="password" placeholder="Password" name="Password"></input>
+              <br>
+              <button type="submit" class="btn btn-outline-secondary">Login</button>
+            </div>
+          </form>
+       </div>
+      </main>
     <div class="card-footer text-muted"></div>
   </div>
   <!-- Bootstrap JS -->
