@@ -166,6 +166,7 @@ res.render("registration", templateVars);
 
 app.post("/register", (req, res) => {
   const {email, password} = req.body;
+  console.log(email, password, req.body)
   if (!email || !password) {
      return res.status(400).send("Error")
   } 
