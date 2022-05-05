@@ -141,7 +141,8 @@ app.post("/login", (req, res) => {
   }
   if (!user) return res.status(400).send("Invalid Login")
 
-  if (!bcrypt.compareSync(password, users.password)) return res.status(400).send("Invalid Password") //changed user to users
+  if (!bcrypt.compareSync(password, user)) return res.status(400).send("Invalid Password") //changed user to users
+  //users.password changed to user
 
   req.session.userId = userId[getUserByEmail(email, users)].id;
   res.redirect("/urls");
