@@ -109,11 +109,15 @@ app.post("/register", (req, res) => {
   if (!email || !password) {
     return res.status(400).send("Error")
   }
-  const user = getUserByEmail(email)
+  const user = getUserByEmail(email, users)
 
   if (user) {
     return res.status(400).send("Account already exists")
   }
+
+
+
+
 
   const userId = generateRandomString();
   users[userId] = {
@@ -137,7 +141,7 @@ app.post("/login", (req, res) => {
   }
   if (!user) return res.status(400).send("Invalid Login")
 
-  if (!bcrypt.compareSync(password, user.password)) return res.status(400).send("Invalid Password")
+  if (!bcrypt.compareSync(password, users.password)) return res.status(400).send("Invalid Password") //changed user to users
 
   req.session.userId = userId[getUserByEmail(email, users)].id;
   res.redirect("/urls");
